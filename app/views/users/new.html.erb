@@ -1,14 +1,14 @@
 <h1>New User</h1>
 
-<form action="/users" method="post" accept-charset="UTF-8" >
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="user[username]"> <br>
+<%= form_with model: @user do |form| %>
+    <%= form.label(:username, "Username:") %>
+    <%= form.text_field(:username) %> <br> <br>
 
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" name="user[email]"> <br>
+    <%= form.label(:email, "Email:", ) %>
+    <%= form.email_field :email, placeholder: "example@topmail.vom" %> <br> <br>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="user[password]"> <br>
+    <%= form.label(:password, "Password:") %>
+    <%= form.password_field :password %> <br> <br>
 
-    <input type="submit" value="Submit">
-</form>
+    <%= form.submit %>
+<% end %>
